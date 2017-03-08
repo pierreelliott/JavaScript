@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		
+		<title>WhateverYouWant</title>
+		
+		<script language="javascript">
+			console.log("hello world !!!");
+			
+			function compteVoyelles(str)
+			{
+				var cpt = 0;
+			
+				for(var i = 0; i < str.length; i++)
+				{
+					switch(str[i])
+					{
+						case "a": case "A": case "à": case "ã": case "À": case "Ã": case "ä": case "Ä": case "â": case "Â":
+						case "e": case "E": case "é": case "è": case "È": case "ê": case "Ê": case "ë": case "Ë":
+						case "i": case "I": case "ï": case "Ï": case "î": case "Î": case "ì": case "Ì":
+						case "o": case "O": case "ô": case "Ô": case "ö": case "Ö": case "ò": case "Ò": case "õ": case "Õ":
+						case "u": case "U": case "ù": case "Ù": case "û": case "Û": case "ü": case "Ü":
+						case "y": case "Y": case "ÿ":
+							cpt++;
+							break;
+					}
+				}
+				
+				return cpt;
+			}
+			
+			function plusPetitElt(tab)
+			{
+				if(tab !== null)
+				{
+					var min = tab[0];
+					
+					for(var i = 1; i < tab.length; i++)
+					{
+						if(tab[i] < min)
+						{
+							min = tab[i];
+						}
+					}
+					
+					return min;
+				}
+				else
+				{
+					return null;
+				}
+			}
+			
+			function moyenne(tab)
+			{
+				if(tab !== null)
+				{
+					var sum = 0;
+				
+					for(var i = 0; i < tab.length; i++)
+					{
+						sum += tab[i];
+					}
+					
+					return sum/tab.length;
+				}
+				else
+				{
+					return null;
+				}
+			}
+			
+			console.log("Chaîne : 'Bonjour ! Y a quelqu'un ?'\nNombre de voyelles : ",
+						compteVoyelles("Bonjour ! Y a quelqu'un ?"));
+			
+			console.log([2, 5, 7, 6, 3, 1, 1]);
+			console.log("Plus petit élément : ", plusPetitElt([2, 5, 7, 6, 3, 1, 1]));
+			
+			console.log([2, 5, 7, 6, 3, 1, 1]);
+			console.log("Moyenne : ", moyenne([2, 5, 7, 6, 3, 1, 1]));
+		</script>
+	</head>
+	<body>
+		<p>Hello <span onmouseover="console.log('haha, tickles');">world</span></p>
+		<button onclick="console.log('click');">Click me</button>
+	</body>
+</html>

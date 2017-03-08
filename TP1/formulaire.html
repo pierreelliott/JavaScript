@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Form</title>
+		<script language="javascript" src="script.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<form id="leformulaire" action="formulaire.html">
+			<fieldset>
+				<legend>Form</legend>
+				
+				<div>
+					<label for="prenom">First name :</label>
+					<input type="text" id="prenom" name="prenom" required/>
+				</div>
+				
+				<div>
+					<label for="nom">Name :</label>
+					<input type="text" id="nom" name="nom" required/>
+				</div>
+				
+				<div>
+					<label for="age">Age :</label>
+					<input type="number" id="age" min="0" name="age"/>
+					<span id="ageErrorMajority" hidden>You should be aged of 18 at least.</span>
+				</div>
+				
+				<div>
+					<label for="identifiant">Login :</label>
+					<input type="text" id="identifiant" name="identifiant"/>
+					<span id="idError" hidden>The login should only contain letters and be smaller to 12 characters.</span>
+				</div>
+				
+				<div>
+					<label for="mdp">Password :</label>
+					<input type="password" id="mdp" name="mdp"/>
+						<a class="tooltip">+<span class="tooltiptext">The password should contain 8 characters and a number, a special character, a small cap letter and a cap letter.</span></a>
+					<span id="mdpMessageForce" hidden>Password strength : <span id="forceMdp"></span>%</span>
+				</div>
+				
+				<div>
+					<label for="mdp2">Password confirmation :</label>
+					<input type="password" id="mdp2" name="mdp2"/>
+					<span id="mdp2ErrorDifferents" hidden>Les 2 mots de passe doivent être identiques</span>
+				</div>
+				
+				<div>
+					<label for="cgu">I accept CGU :</label>
+					<input type="checkbox" id="cgu" name="cgu"/>
+				</div>
+				
+				<button id="valider">Send</button>
+			</fieldset>
+		</form>
+	</body>
+</html>

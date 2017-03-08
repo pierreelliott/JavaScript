@@ -1,0 +1,13 @@
+.alarm {
+	background-color: rgb(150,150,150);
+	border-radius: 0.5em;
+	border: 1px solid black;
+}
+
+.alarm > * {
+	margin: 5px;
+}
+
+.alarm input {
+	width: 5vw;
+}
