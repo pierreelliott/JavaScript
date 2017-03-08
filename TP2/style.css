@@ -5,9 +5,38 @@
 }
 
 .alarm > * {
-	margin: 5px;
+	margin: 1%;
 }
 
 .alarm input {
 	width: 5vw;
+}
+
+#myClock {
+	font-size: 48px;
+	border: 1px solid darkblue;
+	border-radius: 0.5em;
+	padding: 1vh 1vw;
+	background-color: lightblue;
+	display: inline-block;
+}
+
+#audioAlarms {
+	float: right;
+}
+
+#text {
+	width: 10vw;
+	float: right;
+}
+
+.blink {
+	animation-name: blinkAnimation;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes blinkAnimation {
+	from {background-color: red;}
+	to {background-color: grey;}
 }
