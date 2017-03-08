@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<script>
+      
+window.addEventListener("load",function(){
+
+	var elementClock = document.getElementById("clock");
+	var elementDisplay = document.createElement("display");
+	var elementAddAlarmButton = document.createElement("button");
+	var objCurrentTime = new Date();
+	var arrayAlarm = new Array();
+
+	initClock();
+
+	function initClock (){		
+		elementAddAlarmButton.textContent = "+";	
+		elementClock.appendChild(elementDisplay);
+		elementClock.appendChild(elementAddAlarmButton);
+		elementAddAlarmButton.addEventListener("click",addAlarm);		
+				
+		refreshDiplay();
+		addAlarm();		
+	}
+		
+	function refreshDiplay (){
+		objCurrentTime.setTime(Date.now());
+		elementDisplay.textContent = objCurrentTime.toLocaleTimeString();
+		checkAlarms ();
+		setTimeout(refreshDiplay,250);
+	}
+
+	function addAlarm () {
+			
+		var	alarmContainer = document.createElement("div");
+		var checkboxActive = document.createElement("input");
+		var selectHour = document.createElement("select");
+		var selectMinute = document.createElement("select");
+
+		checkboxActive.setAttribute("type","checkbox");
+		checkboxActive.checked = true;
+	  
+		for (i = 0;i < 24;i++) {
+
+			var opt = document.createElement('option');
+			opt.value = i;
+			opt.innerHTML = i;
+			selectHour.appendChild(opt);
+		}
+	  
+		for (i = 0;i < 60;i++) {
+
+			var opt = document.createElement('option');
+			opt.value = i;
+			opt.innerHTML = i;
+			selectMinute.appendChild(opt);
+		}
+	  
+		alarmContainer.appendChild(checkboxActive);
+		alarmContainer.appendChild(selectHour);
+		alarmContainer.appendChild(selectMinute);
+
+		elementClock.insertBefore(alarmContainer,elementAddAlarmButton);
+
+		arrayAlarm.push(alarmContainer);
+	}
+
+	function checkAlarms () {
+	  
+		for (var i = 0; i < arrayAlarm.length; i++) {
+
+			if (!arrayAlarm[i].childNodes[0].checked) {
+
+				continue;
+			}
+
+			if (arrayAlarm[i].childNodes[1].value != objCurrentTime.getHours() ) {
+
+				continue;
+			}
+
+			if (arrayAlarm[i].childNodes[2].value != objCurrentTime.getMinutes() ) {
+
+				continue;
+			}
+
+			document.body.style.backgroundColor = "red";
+
+			arrayAlarm[i].childNodes[0].addEventListener("click",stopAlarm);	
+
+		}
+	}
+		
+	function stopAlarm () {
+		
+		document.body.style.backgroundColor = "white";
+		this.checked = false;
+		this.removeEventListener("click",stopAlarm);
+	}
+
+});
+		</script>
+  
+	</head>
+
+	<body>
+
+		<div id="clock"></div>
+
+	</body>
+</html>
